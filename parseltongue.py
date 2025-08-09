@@ -16,9 +16,12 @@ def bionic_reading_html(text):
     output_tokens = []
 
     for token in doc:
-        if token.is_punct or token.is_space:
-            output_tokens.append(token.text)
+        if token.is_space:
+            continue  # spaces handled by whitespace_
+        elif token.is_punct:
+            output_tokens.append(token.text + token.whitespace_)
         else:
-            output_tokens.append(bold_first_syllable_html(token.text))
+            emphasized = bold_first_syllable_html(token.text)
+            output_tokens.append(emphasized + token.whitespace_)
 
     return ''.join(output_tokens)

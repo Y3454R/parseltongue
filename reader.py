@@ -29,13 +29,6 @@ def bionic_reading(text):
                 output_tokens.append(bolded)
             else:
                 output_tokens.append(bold_first_syllable(token.text))
-
-        # preserve whitespace after token
-        if token.whitespace_:
-            output_tokens.append(token.whitespace_)
+        output_tokens.append(token.whitespace_)
 
     return ''.join(output_tokens)
-
-
-sample_text = "Bionic reading helps you read faster by guiding your eyes through important parts."
-print(bionic_reading(sample_text))
