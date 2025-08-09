@@ -1,0 +1,1 @@
+Parseltongue helps you read faster by highlighting important parts of words.
